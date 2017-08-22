@@ -1,0 +1,50 @@
+# This file exists to make every article display correctly. Don't edit carelessly!
+# Activate RewriteEngine
+RewriteEngine on
+
+
+# Automatic Image Resizing
+RewriteRule ^(issue/\d{4}/\d{2}/images/\d{6}\d{3}-\d+\.(jpg|png))(\.(width=(400|600|800|1000|0))|)$ resizeImage.php?file=$1&$4 [QSA]
+RewriteRule ^(issue/\d{4}/\d{2}/images/\d{4}-\d{2}-\d{2}-\d{3}-\d+\.(jpg|png))(\.(width=(400|600|800|1000|0))|)$ resizeImage.php?file=$1&$4 [QSA]
+#RewriteRule ^(issue/\d{4}/\d{2}/images/\d{6}\d{3}-\d+\.jpg)$ resizeImage.php?file=$1
+
+# Admin Redirects
+RewriteRule ^issue/(\d{4})/(\d{1,2})/(\d{1,3})/edit$ admin.php?action=updateArticle&year=$1&month=$2&item=$3
+RewriteRule ^issue/(\d{4})/(\d{1,2})/(\d{1,3})/delete$ admin.php?action=deleteArticle&year=$1&month=$2&item=$3
+RewriteRule ^issue/(\d{4})/(\d{1,2})/add$ admin.php?action=addArticle&year=$1&month=$2
+RewriteRule ^issue/(\d{4})/(\d{1,2})/delete$ admin.php?action=deleteIssue&year=$1&month=$2
+RewriteRule ^issue/add$ admin.php?action=addIssue
+RewriteRule ^author/(\d{1,4})/edit$ admin.php?action=updateAuthor&author=$1
+
+# Default Issue
+RewriteRule ^$ http://%{HTTP_HOST}/issue/2017/06/ [L,R=302]
+
+# Friendly URLs
+RewriteRule ^(issue(/(\d{4})/(\d{1,2})(/(\d{1,3})|)|)|author/(\d{1,4}))$ http://%{HTTP_HOST}/$1/ [L,R=301]
+RewriteRule ^issue/(\d{4})/(\d{1})/$ http://%{HTTP_HOST}/issue/$1/0$2/ [L,R=301]
+RewriteRule ^issue/(\d{4})/(\d{1})/(\d{1})/$ http://%{HTTP_HOST}/issue/$1/0$2/00$3/ [L,R=301]
+RewriteRule ^issue/(\d{4})/(\d{1})/(\d{2})/$ http://%{HTTP_HOST}/issue/$1/0$2/0$3/ [L,R=301]
+RewriteRule ^issue/(\d{4})/(\d{2})/(\d{1})/$ http://%{HTTP_HOST}/issue/$1/$2/00$3/ [L,R=301]
+RewriteRule ^issue/(\d{4})/(\d{2})/(\d{2})/$ http://%{HTTP_HOST}/issue/$1/$2/0$3/ [L,R=301]
+RewriteRule (.*)index.php$ http://%{HTTP_HOST}/$1 [L,R=301]
+RewriteRule ^issues/(.+)$ http://%{HTTP_HOST}/issue/$1 [L,R=301]
+
+RewriteRule ^issue/$ displayIssues.php
+RewriteRule ^issue/(\d{4})/$ displayIssues.php?year=$1
+RewriteRule ^issue/(\d{4})/(\d{1,2})/$ displayArticles.php?year=$1&month=$2 [QSA]
+RewriteRule ^issue/(\d{4})/(\d{1,2})/(\d{1,3})/? displayArticles.php?year=$1&month=$2&item=$3 [QSA]
+
+
+RewriteRule ^author/(\d{1,4})/$ displayArticles.php?author=$1 [QSA]
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(woff|jpg|jpeg|png|gif|swf)$">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+
+    <FilesMatch "resizeImage.php">
+        Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+</IfModule>
+
+#php_flag newrelic.browser_monitoring.auto_instrument false

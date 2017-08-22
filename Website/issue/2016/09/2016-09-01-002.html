@@ -1,0 +1,78 @@
+<header>
+<h1 class="articletitle">Windows 10: Privacy and You</h1>
+<span class="authorname">Joseph T. Parsons</span>
+<span class="issuedate">September 2016</span>
+</header>
+
+
+<article>
+
+<div id="slider" data-caption="The new, always listening Windows 10 desktop" data-source="Microsoft">
+  <img src="images/2016-09-01-002-1.png" alt="" />
+</div>
+
+<p>For the past year, from July 29th, 2015, to July 29th, 2016, Windows 10 has been available as a free upgrade for those running Windows 7 and Windows 8. It remains available as a free upgrade for those using assistive technologies like text-to-speech (check out <a href="https://www.microsoft.com/en-us/accessibility/windows10upgrade">https://www.microsoft.com/en-us/accessibility/windows10upgrade</a> for more information), while everyone else still on an old version will now need to fork over $119.</p>
+
+<p>In commemoration of this anniversary, Microsoft is releasing a Windows 10 Anniversary Update. When it was first released, Windows 10 came to the attention of tech experts for prodding into every bit of personal information you had, and the Anniversary Update only dials this back to 9. If you are privacy conscious, there are over a dozen different settings you can change to stop Windows 10 from eavesdropping, and I’d like to walk you through the big ones.</p>
+
+
+<h2>Privacy Settings Are Invasive by Default</h2>
+<p>By default, Windows 10’s privacy settings tend towards “tell us everything about you.” Thankfully, they are easy to change: in the Settings app go to “Privacy.” In the default “General” tab you will be able to toggle off several invasive settings. These are, in order:</p>
+
+<ul>
+  <li>Whether applications can share information about you for advertising purposes. (Everyone should disable this. Everyone.)</li>
+  <li>Whether “SmartScreen” is enabled, which sends the address of every website you visit to Microsoft to check if it is known to distribute malware. (Most people can disable this, but if you have a history of installing malware without realizing it, you should probably keep this enabled.) </li>
+  <li>Whether everything you type is sent to Microsoft. (Disable this.)</li>
+  <li>Whether websites are told what language you read. (I would keep this enabled.)</li>
+  <li>Whether Windows 10 devices can control the current computer. (While most people won’t use this feature, it is usually okay to leave it on.)</li>
+  <li>Whether Bluetooth can be used to control the current computer. (You can probably keep this enabled, even if you might not use the feature.) </li>
+</ul>
+
+<p>Getting tired yet? There’s actually a couple more toggles in the other tabs: on the “Location” tab, you can enable or disable whether applications can know your device location; if disabled, applications won’t know your precise locations, but will still generally be able to guess. On the “Camera,” “Microphone,” and “Radios” tabs, you can set whether applications are able to use these; and in the “Contacts,” “Calendar,” “Call history,” “Email,” and “Messaging” tabs, you can set whether applications are allowed to access these types of information. I would leave most of these enabled, but if you don’t ever use your camera or microphone, you may wish to disable both; nefarious individuals have been known to try and spy through them on unsuspecting computer users.</p>
+
+<p>Finally, in the “Feedback & Diagnostics” tab, you can set whether Windows will automatically send information about your computer after crashes. You can choose between “Basic” (which sends your computer hardware configuration, installed software, and how well installed applications run), “Enhanced” (which also sends information on how often and for how long you use applications), and “Full” (which also sends a copy of everything that was loaded when the computer crashed – for instance, any documents you had open, or perhaps any banking information you might have been looking at). I recommend the former, but there is also an advanced way of disabling reporting altogether by editing the registry (but be advised, as registry changes can break your Windows installation if you aren’t careful):</p>
+
+<ol>
+  <li>Open the registry (hit Win+R, type “regedit”)</li>
+  <li>In the left pane, open the folder “HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection”</li>
+  <li>Right click on the right pane, choose “New” > “DWORD (32-Bit) Value”</li>
+  <li>Enter the name “AllowTelemetry”</li>
+  <li>Open the services configuration panel (hit Win+R, type “services.msc”)</li>
+  <li>Right click “Connected User Experiences and Telemetry” and set the “Startup type” to “Disabled”</li>
+</ol>
+
+
+<h2>Microsoft Edge is a Mixed Bag</h2>
+<p>In Windows 10, Microsoft replaced its perennial web browser, Internet Explorer, with the new Edge browser. Edge is faster, lighter, and better at displaying modern web content. And, in the Anniversary Update, it adds support for Chrome-style browser extensions as well as Adobe Flash content.</p>
+
+<p>But is it worth using? Well, there’s both pros and cons. Compared to Firefox or Chrome, Edge is arguably slightly more secure and slightly better on battery life. On the other hand, Edge still doesn’t quite compare when it comes to displaying web pages that use the most leading-edge technologies.</p>
+
+<p>Additionally, there are privacy concerns:</p>
+<ul>
+  <li>By default, Cortana will keep a log of all websites you visit. It uses this information to be a better digital assistant, of course, but it can be disabled within Edge by clicking the “•••” icon at the top-right, clicking “Settings” and then “Advanced settings,” and toggling “Have Cortana assist me in Microsoft Edge.”</li>
+  <li>Right below this, you can also toggle whether to “show search and site suggestions as I type,” which will send everything you type in the address bar to Microsoft Bing for search suggestions.</li>
+  <li>A little bit lower, there is a toggle to “use page prediction to speed up browsing…,” which sends every page you visit to Microsoft in order to develop a pattern for guessing which page you’ll visit next.</li>
+  <li>Finally, right below that one, there is a toggle to “help protect me from malicious sites and downloads with SmartScreen Filter,” which sends every site you visit and file you download to Microsoft to scan for Malware.</li>
+</ul>
+
+<p>Truthfully, if you are especially privacy-conscious, <a href="https://www.mozilla.org/en-US/firefox/">Mozilla Firefox</a> should be your browser-of-choice, anyway.</p>
+
+
+<h2>Classic Shell or the New Start Menu?</h2>
+<p>When Windows 8 first came out, it became quite controversial for getting rid of the tried-and-true start menu. At the time, I encouraged people to upgrade to Windows 8 anyway – it featured several improvements over Windows 7, and <a href="http://www.classicshell.net/">Classic Shell</a> was available as an excellent third-party start menu that mimics the old Windows 7 start menu.</p>
+
+<p>Windows 10 brings back a fuller start menu, but it still lacks some of the elegance of the older start menu, and allocates a lot of space – no surprise, in this day and age – to advertising. For instance, while I have not installed King’s “Soda” on my computer, I still see an icon for it when I open the Windows 10 start menu. If you find this as appalling as I do, Classic Shell is worth checking out.</p>
+
+
+<h2>Windows Live Integration</h2>
+<p>Finally, beginning with Windows 8, Microsoft has pushed to get users to link their Windows user account with a Windows Live account. If you do connect a Windows Live account, you can sync settings across your devices, but at the cost of storing the information on Microsoft’s servers.</p>
+
+<p>To convert to a basic account (or back), open the Settings app and click “Accounts.” You will see a link to “sign in with a local account” or to “sign in with a Microsoft account.” Choosing a basic account will limit the information you send to Microsoft, an easy silver bullet for the privacy conscious.</p>
+
+
+<h2>Some Final Thoughts</h2>
+<p>Obviously, not everybody is so concerned about their privacy, but the collection and aggregation of personal data makes it much easier for hackers and spyware makers to collect sensitive personal information -- like credit card data, bank passwords, and email logins. Or, perhaps even more disturbing, it allows anyone who obtains access to your computer an almost direct window into your life. Disabling some of these Windows features limits this potential.</p>
+
+<p>Of course, for those who do take their privacy seriously on principle, Windows may no longer be the best platform, anyway; instead, I’d recommend looking at a Linux variant – like LinuxMint. And if Windows application compatibility is essential, Windows Server may be worth looking into as well; I use Windows Server 2012 R2 on my gaming machine, and it can run nearly every normal Windows application; its only real failing is not working with Bluetooth.</p>
+
+</article>

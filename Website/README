@@ -1,0 +1,8 @@
+This is a fairly rudimentary CMS designed to display The Metropolitan newspaper. While it does lack many features of a more robust CMS like Wordpress, it has the advantage of being tailor-made for a newspaper-like site. In particular, pages are automatically cached to HTML files on the disk (ensuring minimal database activity and maximum speed), new issues can be easily added by merely uploading their HTML content to the webserver, there is no need to be concerned with the platform's security, HTML is automatically converted to a more press-ready format (such as adding hypenation and other special formatting), images are automatically compressed and cached, and so-on.
+
+Full documentation should be available in The Metropolitan's dropbox. For now, here is our to-do list:
+
+1.) Objectification of everything?
+2.) In-page PDF viewer
+3.) Staff page
+4.) Author page pagination

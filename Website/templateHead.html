@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+
+<head lang=en-US>
+    <meta http-equiv="x-ua-compatible" content="IE=Edge"/>
+    <meta charset="UTF-8" />
+    <title><?php echo $htmlPageData['title']; ?> - The Metropolitan</title>
+
+    <!-- Facebook/OpenGraph -->
+    <meta property="og:title" content="<?php echo $htmlPageData['title']; ?>" />
+    <meta property="og:description" content="<?php echo $htmlPageData['description']; ?>" />
+    <meta property="og:type" content="article" />
+
+    <?php if (isset($htmlPageData['image']['path'])): ?>
+    <meta property="og:image" content="<?php echo $htmlPageData['image']['path']; ?>" />
+    <meta property="og:image:width" content="<?php echo $htmlPageData['image']['width']; ?>" />
+    <meta property="og:image:height" content="<?php echo $htmlPageData['image']['height']; ?>" />
+    <?php endif; ?>
+
+    <meta property="article:publisher" content="https://www.facebook.com/The-Metropolitan-157464007613094/" />
+
+    <!-- Author Data -->
+    <?php if (isset($htmlPageData['author'])): ?>
+        <meta name="author" content="<?php echo $htmlPageData['author']['name']; ?>" />
+        <?php if ($htmlPageData['author']['facebook']): ?>
+            <meta property="article:author" content="https://www.facebook.com/<?php echo $htmlPageData['author']['facebook']; ?>" />
+        <?php endif; ?>
+    <?php endif; ?>
+    <?php if (isset($cachePath)) echo "<!-- $cachePath -->"; ?>
+
+    <!-- Display -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Marcellus+SC|Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/libs/slick-1.6.0/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/styles/main2.css">
+    <link rel="stylesheet" type="text/css" href="/styles/slick-lightbox.css">
+
+    <!-- Script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/libs/slick-1.6.0/slick/slick.min.js"></script>
+    <script type="text/javascript" src="/libs/slick-lightbox.js"></script>
+    <script type="text/javascript" src="/scripts/main.js"></script>
+
+    <?php if (isAdmin()): ?>
+    <script type="text/javascript" src="/scripts/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap.css" />
+    <?php endif; ?>
+</head>
+
+<body>
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Header -->
+<a href="http://themetropolitan.metrostate.edu">
+<div id="logo" style="width: 100%; max-width: 1000px; margin-left: auto; margin-right: auto;">
+        <img src="/images/logo.PNG" alt="The Metropolitan Student Newspaper">
+<!--        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTheMetropolitanMN%2F&tabs=timeline&width=500&height=121&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="500" height="121" style="opacity: .85; border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" align="center"></iframe>-->
+</div>
+</a>
+
+<!-- Navigation -->
+<nav id="menu">
+    <input id="menu-toggle" type="checkbox" role="button" />
+    <label id="toggler" class="menu-toggle" for="menu-toggle">&#9776; Menu</label>
+    <ul>
+        <li><a class="current" href="/index.php">Current Issue</a></li>
+        <li><a href="/issue/">Archives</a></li>
+        <li><a href="/staff.php">Staff</a></li>
+        <li><div style="bottom: 1px;" class="fb-like" data-href="https://www.facebook.com/TheMetropolitanMN/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div></li>
+<!--        <li><a href="https://www.facebook.com/The-Metropolitan-157464007613094/" target="_blank">Facebook</a></li>-->
+        <li>
+            <div id="googlecs">
+                <script type="text/javascript">
+                  (function() {
+                    var cx = '012835309258073768574:kcbu9j8qwue';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                  })();
+                </script>
+                <gcse:search></gcse:search>
+            </div>
+        </li>
+    </ul>
+</nav>
+<main>
